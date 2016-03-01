@@ -1,0 +1,429 @@
+body{
+	font-family: "Helvetica",Arial,sans-serif;
+	font-weight: 500;
+	background:url(thumbs/bgnoise_lg.png);
+}
+#main{
+	margin:0 auto;
+	width:80%;
+	text-align:center;
+	font-family: Helvetica, Arial, sans-serif;	
+}
+.editable{
+/*	color:red;*/
+}
+#scrollingDiv{
+	background:#ccc;
+	z-index: 1;
+	position: absolute;
+	text-align:center;
+	border-radius: 10px;
+	width:130px;
+	height:75%;
+	font-stretch: extra-condensed;
+	top: 15%; 
+	left: 89%;   
+}
+#scrollingDiv h4{
+	background:#Ff0;
+}
+#container{
+	padding-top:5%;
+}
+.mainbutton{
+	border:1px solid #ccc;
+	border-radius:3px;
+	background:white;	
+}
+.mainbutton:hover{
+	background:#F6F6F6;	
+}
+
+div.pager {
+    text-align: center;
+	padding:3px;
+}
+
+div.pager span {
+    display: inline-block;
+	border:1px solid #ccc;
+	border-radius:3px;
+	background:white;	
+	color:#0194EF;
+	border: 1px solid gray; 
+    cursor: pointer;
+	padding:0px 12px 0px 12px;
+
+}
+
+div.pager span.active {
+	color:#ffffff;
+    background:gray;	
+}
+
+#header{
+	background:white;
+	background:url(thumbs/bglogo_lg.jpg);
+	background-repeat:repeat-y;	
+	color:white;
+	padding:3px;
+	height:50px ;
+	position: relative;
+	margin: 20px;
+	font-size:12px;
+	border-radius: 10px;
+	@include background-image(linear-gradient(rgba(255,255,255,0.9), rgba(235,235,235,0.9)));  
+	  -webkit-box-shadow: 3px 2px 23px rgba(0,0,0,0.5);
+			  box-shadow: 3px 3px 3px rgba(0.5,0,0,0.5);
+	
+}	
+#header .logout{
+	color:black;
+	float:right;
+	padding:10px;
+	text-align:right;
+}
+#content{
+    clear:both;
+	margin: 20px;
+	border-radius: 10px;
+}
+
+.cellEditing{
+/*	background:#ccc;*/
+}
+#menu {
+    width:20%;
+    float:left;
+	color: white;
+	border-radius: 10px;
+    border-style:solid;
+/*    background:#CCC;*/
+}
+#menu .item{
+	color:#0194EF;
+	border: 1px solid rgba(200, 200, 200, 0.1); 
+/*    border-style	:solid;*/
+	padding-left:20px;
+}
+#menu ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#menu h3 {
+	font-size: 12px;
+	line-height: 20px;
+	padding: 0;
+	cursor: default;
+	text-transform: uppercase;
+	/*fallback for browsers not supporting gradients*/
+/*	background: url(thumbs/home.png) center right no-repeat,linear-gradient(#DEDEDE, #B3B3B3);*/
+  background: -webkit-linear-gradient(#DEDEDE, #B3B3B3) ,url(img.png) no-repeat; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#DEDEDE, #B3B3B3); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#DEDEDE, #B3B3B3); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#DEDEDE, #B3B3B3); /* Standard syntax */
+}
+
+#menu h3:hover {
+	text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+}
+/*iconfont styles*/
+#menu h3 span {
+	font-size: 16px;
+}
+/*list items*/
+#menu li {
+	list-style-type: none;
+	background:white;
+	cursor: pointer;
+	font-weight: 800;
+}
+
+#menu ul ul li a {
+	text-decoration: none;
+	text-align:left;
+	font-size: 11px;
+	line-height: 20px;
+	display: block;
+	padding: 0 1px;
+	list-style-type: none;
+	/*transition for smooth hover animation*/
+	transition: all 0.15s;
+	color: black ; 
+}
+/*hover effect on links*/
+#menu ul ul li a:hover {
+	border-left: 3px solid blue;
+	border-right: 3px solid blue;	
+	list-style-type: none;
+}
+#menu ul ul {
+/*
+	display: none;
+*/
+}
+#menu li.active ul {
+	display: block;
+}
+
+#area{
+    width:79%;
+    float:right;
+	border-radius: 10px;
+	background-position: center center; 
+    background:#FFF;
+}
+#area table{
+    margin-left:auto; 
+    margin-right:auto;
+	padding-bottom:10px;
+	font-size: 12px;
+    width: 90%;	
+}
+#area table caption {
+	text-align: left;
+	color: GRAY;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 0px 15px 0px;
+}
+#area table thead {
+  background: gray;
+  color: white;
+}
+#area tr,{
+	margin:0px;
+	padding: 5px 10px;
+	text-align:center;
+	width: 2px;
+}
+tbody tr:nth-child(even) {
+  background: WhiteSmoke;
+}
+/*tbody tr td:nth-child(1),
+tbody tr td:nth-child(5) {
+  text-align: center;
+  font-family: monospace;
+}*/
+#page_navigation a{
+	padding:3px;
+	border:1px solid gray;
+	color:black;
+	text-decoration:none
+}
+
+.buttonlink{
+	text-align:left;
+	font-size: 11px;
+	color:#0194EF;
+	border: 1px solid gray; 
+	font-weight: 800;
+	padding: 3px 13px;
+	float:left;
+	cursor:pointer;
+	border-radius: 3px;
+}
+.buttonlink:hover{
+	color:#00F;
+	border: 1px solid black; 
+}
+.commands{
+	/*background:WhiteSmoke;*/
+/*	border:1px solid gray;*/
+}
+.commandbutton{
+	text-align:left;
+	font-size: 11px;
+	color:#0194EF;
+	border: 1px solid gray; 
+	font-weight: 800;
+	padding: 3px 13px;
+	border-radius: 2px;
+	float:right;
+	cursor:pointer;
+}
+
+.commandbutton:hover{
+	color:#00F;
+	border: 1px solid black; 
+}
+
+.imgbutton{
+	cursor:pointer;
+}
+
+
+#area h1{
+	font-size: 12px;
+	line-height: 30px;
+/*	text-transform: uppercase;*/
+/*	color:white;*/
+	text-align:left;
+	padding-left:25px;
+	/*fallback for browsers not supporting gradients*/
+	background: -webkit-linear-gradient(#DEDEDE, #B3B3B3) ,url(img.png) no-repeat; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#DEDEDE, #B3B3B3); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#DEDEDE, #B3B3B3); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#DEDEDE, #B3B3B3); /* Standard syntax */
+}
+#footer {
+    color:gray;
+    clear:both;
+    text-align:center;
+    font-size:10px;
+}
+
+.forms {
+	width: 400px;
+	height: 400px;
+	margin:0 auto; 
+	position: relative;
+	padding-left:10px; 
+	padding-top:40px;
+}
+
+.tabs {
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+.tabs li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.tabs a {
+  background: gray;  /*topbar c0392b  #88565b */
+  display: block;
+  float: left;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 12px 22px 12px 22px;
+  /*border-right: 1px solid @tab-border;*/
+
+}
+.tabs li:last-child a {
+  border-right: none;
+  width: 174px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+.tabs a.active {
+  background: #136899;  /*topbar e74c3c  */
+  border-right: none;
+  -webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+
+.form-action {
+  padding: 0 20px;
+  position: relative;
+  background:#f1f1f1;
+}
+.form-action h2 {
+	padding-top: 20px;
+  font-size: 25px;
+  padding-bottom: 8px;
+}
+.form-action p {
+  font-size: 16px;
+  padding-bottom: 8px;
+  line-height: 25px;
+}
+#loginform {
+	padding-top: 20px;
+}
+
+#loginform input { 
+	width:180px;
+	background-color: rgba(255, 255, 255, 0.4);
+	border: 2px solid rgba(100, 100, 255, 0.15); 
+	padding: 7px; font-family: Keffeesatz, Arial; 
+	color: #4b4b4b;
+	font-size: 14px; -webkit-border-radius:5px; 
+	margin-bottom: 15px; margin-top: -10px;
+}
+#loginform input:focus{ 
+	border: 2px solid #136899; 
+	background-color: rgba(255, 255, 255, 1); 
+}
+
+.form-action .dark-box.bottom {
+  position: absolute;
+  right: 0;
+  bottom: -24px;
+}
+.tabs + .dark-box.top {
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+#loginform .button {
+    border: none;
+    background: #136899;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 2px;
+    /*box-shadow: 0px 3px 1px #2075aa;*/
+  	-webkit-transition: all 0.15s linear;
+	  -moz-transition: all 0.15s linear;
+	  transition: all 0.15s linear;
+}
+
+#loginform .button:hover {
+  background: #1e75aa;
+  /*box-shadow: 0 3px 1px #237bb2;*/
+}
+
+#loginform .button:active {
+  background: #136899;
+  /*box-shadow: 0 3px 1px #0f608c;*/
+}
+
+::-webkit-input-placeholder {
+  color:dark ;    /*  #e74c3c */
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #e74c3c;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #e74c3c;
+}
+:-ms-input-placeholder {
+  color: #e74c3c;
+}
+
+.formhide {
+/*	opacity:0.92;*/
+	position:absolute;
+    left: 40%;
+    top: 40%;
+	height: 140px;
+	width: 300px;
+	padding:0px 15px 0px 5px;
+	background:#fff;
+	border:2px solid gray;
+	border-radius:2px;
+	display:none;
+}

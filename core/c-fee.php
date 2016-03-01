@@ -46,7 +46,7 @@
 			echo "<th>FECHA</th>";
 			echo "<th>COD.FACTURA</th>";
 			echo "<th>CLIENTE</th>";
-			echo "<th>MONTO</td>";
+			echo "<th>ABONO</td>";
 			echo "<th>VENCIMIENTO</th>";
 			echo "<th>ESTADO</th>";			
 			echo "<th>CONTACTO</th>";
@@ -54,7 +54,7 @@
 		echo "</thead>";	
 		echo "<tbody id='tablebodyfee'>";		
 		echo "<tr>";
-			echo "<td colspan='8' > <font size='3' color='blue'>NO HAY FACTURAS PENDIENTES</font> </td>";
+			echo "<td colspan='8' > <font size='3' color='blue'>NO HAY ABOBNOS O CUOTAS</font> </td>";
 		echo "</tr>";
 		echo "</tbody>";		
 	}else {
@@ -63,7 +63,7 @@
 			echo "<th>FECHA</th>";
 			echo "<th>COD.FACTURA</th>";
 			echo "<th>CLIENTE</th>";
-			echo "<th>MONTO</td>";
+			echo "<th>ABONO</td>";
 			echo "<th>VENCIMIENTO</th>";
 			echo "<th>ESTADO</th>";						
 			echo "<th>CONTACTO</th>";

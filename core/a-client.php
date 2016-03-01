@@ -31,7 +31,7 @@
 				echo json_encode($arr);
 			}
 		}
-	}
+	}	
 	
 	if(isSet($_POST['field']) && isSet($_POST['idcostumer']) && isSet($_POST['value'])){
 		

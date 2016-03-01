@@ -55,7 +55,7 @@
 		echo "</thead>";	
 		echo "<tbody id='tablebodyinv'>";
 		echo "<tr>";
-			echo "<td colspan='8' > <font size='3' color='blue'>NO HAY FACTURAS PENDIENTES</font> </td>";
+			echo "<td colspan='8' > <font size='3' color='blue'>NO HAY FACTURAS</font> </td>";
 		echo "</tr>";
 		echo "</tbody>";		
 	}else {

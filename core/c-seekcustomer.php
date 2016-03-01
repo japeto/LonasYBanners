@@ -26,7 +26,16 @@
 	echo "</table>";
 	
 	echo "<table id='tablecustomer'>";
-	echo "<caption>RESULTADOS DE LA BUSQUEDA<font id='countclients'style='float:right;' color='black'> ".$count." Resultados</font> </caption>";
+	echo "<caption>RESULTADOS DE LA BUSQUEDA<fon4t id='countclients' style='float:right;' color='black'> ".$count." Resultados</font>";
+		echo '<form action="core/c-export.php" method="post" target="_blank" id="FormularioExportacion">
+<img class="imgbutton" id="exportclient" src="shared/thumbs/btexcel.png" align="right" style="padding-right:5px;">
+<input type="hidden" id="datos_a_enviar" name="datos_a_enviar" />
+<input type="hidden" id="nameexport" name="nameexport" />
+</form>';
+		echo "<a class='imgbutton' id='prnt'  onclick='printclient(this)' >";
+		echo "<img src='shared/thumbs/btprint.png'align='right' style='padding-right:5px;'> </a>";
+					
+	echo "</caption>";		
 	if($count===0) {
 		echo "<thead>";
 		echo "<tr>";

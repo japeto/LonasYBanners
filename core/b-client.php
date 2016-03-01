@@ -21,19 +21,19 @@
 	}
 	if(isSet($_POST['cityClient'])){
 		
-		$idcity=mysqli_real_escape_string($db,$_POST['cityClient']); 		
+		$idcity=$_POST['cityClient']; 		
 			
 		$result=mysqli_query($db,"SELECT * FROM DEPARTAMENTO,CIUDAD WHERE ".
 			"DEPARTAMENTO.IDDEPARTAMENTO = CIUDAD.IDDEPARTAMENTO AND IDCIUDAD='".$idcity."'");
 			
 		$count=mysqli_num_rows($result);
-		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+		$row=mysqli_fetch_array($result);
+			
 		if($count>0){
-			$arr = array ('result'=>'true','CDESCRIPCION'=>$row['CDESCRIPCION'],
-				'DDESCRIPCION'=>$row['DDESCRIPCION']);
+			$arr = array ('result'=>true,'in'=>$idcity,'DDESCRIPCION'=>$row['DDESCRIPCION']);
 			echo json_encode($arr);
 		}else {
-			$arr = array ('result'=>'false');
+			$arr = array ('result'=>false,'rr'=>$result);
 			echo json_encode($arr);
 		}
 	}	

@@ -3,9 +3,12 @@
 	if(!empty($_SESSION['full_name'])){
 		$_SESSION['user_name']='';
 		$_SESSION['full_name']='';
+		$_SESSION['root']='';
+		$_SESSION['usertime']=0;
+		unset($_SESSION['root']);
+		unset($_SESSION['admin']);		
+		unset($_SESSION['usertime']);				
 	}
-	//~ session_start();
-	//~ session_unset();
-	//~ session_destroy();
+	session_unset();
 	header("Location:../index.php");
 ?>

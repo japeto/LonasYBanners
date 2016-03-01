@@ -23,7 +23,8 @@
 	
 	if(isSet($_POST['dateinvoice']) && isSet($_POST['codinvoice']) && isSet($_POST['idcostumer'])
 			&& isSet($_POST['stateinvoice']) && isSet($_POST['quantinvoice']) && isSet($_POST['ids'])
-			&& isSet($_POST['qids']) && isSet($_POST['duedate'])&& isSet($_POST['userid'])){
+			&& isSet($_POST['qids']) && isSet($_POST['valids']) && isSet($_POST['duedate'])
+			&& isSet($_POST['userid']) && isSet($_POST['typecod']) && isSet($_POST['codincrement1']) && isSet($_POST['codincrement2']) ){
 	
 		$dateinvoice=date('Y-m-d', strtotime($_POST['dateinvoice']));
 		$codinvoice=mysqli_real_escape_string($db,$_POST['codinvoice']); 		
@@ -31,19 +32,25 @@
 		$stateinvoice=mysqli_real_escape_string($db,$_POST['stateinvoice']); 	
 		$quantinvoice=mysqli_real_escape_string($db,$_POST['quantinvoice']); 	
 		$duedate=date('Y-m-d', strtotime($_POST['duedate'])); 	
-		$userid=mysqli_real_escape_string($db,$_POST['userid']); 	
+		$userid=mysqli_real_escape_string($db,$_POST['userid']); 		
 		
 		$ids=mysqli_real_escape_string($db,$_POST['ids']); 		
 		$vector = explode("-", $ids);
 		$qids=mysqli_real_escape_string($db,$_POST['qids']); 						
 		$vectorq = explode("-", $qids);				
+		$valids=mysqli_real_escape_string($db,$_POST['valids']); 			
+		$vectorv = explode("-", $valids);						
 		$stringresult = true;
+		
+		$codincrement1=mysqli_real_escape_string($db,$_POST['codincrement1']); 		
+		$codincrement2=mysqli_real_escape_string($db,$_POST['codincrement2']); 
 		
 /*		$result=mysqli_query($db,"INSERT INTO FACTURA (FECHAFACTURA, "
 			."CODFACTURA, CLIENTEFACTURA, ESTADOFACTURA, MONTOFACTURA, "
 			."DETALLEFACTURA, VENCIMIENTOFACTURA, USUARIOFACTURA) "
 			."VALUES ('".$dateinvoice."', '".$codinvoice."', ".$idcostumer.", "
 			."'".$stateinvoice."', ".$quantinvoice.", '".$ids."', '".$duedate."', ".$userid.")");*/
+			
 		$result=mysqli_query($db,"insert into factura (FECHAFACTURA, CODFACTURA, "
 							."CLIENTEFACTURA, ESTADOFACTURA, MONTOFACTURA, "
 							."factura.DETALLEFACTURA, VENCIMIENTOFACTURA,USUARIOFACTURA) "
@@ -55,8 +62,8 @@
 		if($result){
 			$stringresult = $stringresult && true;
 			for($i=0; $i<count($vector); $i++){
-				$result=mysqli_query($db,"INSERT INTO DETALLEFACTURA (DETPRODUCTO, DETFACTURA, DETCLIENTE, DETCANTIDAD) "
-				."SELECT IDPRODUCTO,IDFACTURA,IDCLIENTE,".$vectorq[$i]." AS DETCANTIDAD FROM PRODUCTO,FACTURA,CLIENTE "
+				$result=mysqli_query($db,"INSERT INTO DETALLEFACTURA (DETPRODUCTO, DETFACTURA, DETCLIENTE, DETCANTIDAD,DETVALOR) "
+				."SELECT IDPRODUCTO,IDFACTURA,IDCLIENTE,".$vectorq[$i]." AS DETCANTIDAD,".$vectorv[$i]." AS DETVALOR FROM PRODUCTO,FACTURA,CLIENTE "
  ."WHERE IDPRODUCTO=".$vector[$i]." AND CODFACTURA='".$codinvoice."' AND IDCLIENTE=".$idcostumer." ");							
 	
 				if($result){
@@ -64,7 +71,14 @@
 				}else {
 					$stringresult = $stringresult && false;
 				}		
-			}				
+			}	
+			
+		if($_POST['typecod'] == "CONSECUTIVOIVA"){
+			$stringresult && mysqli_query($db,"UPDATE SISTEMA SET CONSECUTIVOIVA=".$codincrement1." ");						
+		}else if($_POST['typecod'] == "CONSECUTIVO"){
+			$stringresult && mysqli_query($db,"UPDATE SISTEMA SET CONSECUTIVO=".$codincrement2." ");						
+		}
+						
 		}else {
 			$stringresult = $stringresult && false;
 		}	
@@ -155,7 +169,7 @@
 					."<td>".$row['DETCANTIDAD']."</td>"
 					."<td>".$row['REFERENCIAPRODUCTO']."</td>"
 					."<td>".$row['AREAPRODUCTO']."</td>"
-					."<td>".$row['VCONTADOINVENTARIO']."</td>"																				
+					."<td>".$row['DETVALOR']."</td>"																				
 					."<td>".$row['AREAPRODUCTO']*$row['VCONTADOINVENTARIO']."</td>"
 					."<td>".$row['AREAPRODUCTO']*$row['VCONTADOINVENTARIO']*$row['DETCANTIDAD']."</td>"
 					."</tr>";

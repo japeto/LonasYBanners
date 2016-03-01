@@ -15,13 +15,14 @@
 			$row = mysqli_fetch_assoc($exist);
 			$result=mysqli_query($db,"INSERT INTO ABONOSALDO (FECHACREACION, TIPODEPAGO, ESTADOABONO, "
 								." MONTOABONO, FACTURAABONO) VALUES ('".$datefee."', '".$typepayfee."', 'APROBADO', '".$feevalue."', '".$row['IDFACTURA']."')");
+											
+			if($result){
 			
 			mysqli_query($db,"UPDATE FACTURA SET ESTADOFACTURA='CANCELADO' "
 						."WHERE IDFACTURA='".$row['IDFACTURA']."' AND "
 						."MONTOFACTURA <= (SELECT SUM(MONTOABONO) FROM ABONOSALDO "
 						."WHERE IDFACTURA=FACTURAABONO AND IDFACTURA='".$row['IDFACTURA']."')");
-											
-			if($result){
+										
 				$arr = array ('result'=>true,'update'=>mysqli_affected_rows($db));
 				echo json_encode($arr);
 			}else {

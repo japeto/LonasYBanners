@@ -14,19 +14,21 @@
 		}
 		echo "</select></td>";												
 		echo "<td><b>FACTURA No.:</b></td></b><td><input id='codinvoice' style='width:100px; float:left;margin-left:10px' /></td>";
+		echo "<td><a id='changecod'>";
+		echo "<img id='icochange' class='imgbutton' src='shared/thumbs/bton_invoice.png'/></a></td>";
 		
 		echo "<div class='formhide' id='feeform' >";
 		echo "<h4>Establezca la fecha de pago de pago</h4>";
 		echo "<input type='date' id='datefee' value='".date('Y-m-d', time())."'/><br/><br/>";
 		echo "<span class='commandbutton' id='setdate'>Aceptar</span>";
-		echo "<span class='commandbutton' id='exit'>Cancelar</span>";
+		echo "<span class='commandbutton' id='cancelfee'>Cancelar</span>";
 		echo"</div>";
 			
 		echo "</tr>";		
 		echo "<tr>";
 		echo "<td><b>DIRECCION:</b></td><td style='float:left; padding:3px 3px 3px 10px;'>";
 		echo "</b><span id='clientaddress'></span></td>";
-		echo "<td><b>FECHA DE FACTURA:</b></td><td id='dateinvoice' style='float:left; padding:3px 3px 3px 10px;'>".date("d-m-Y")."</td>";
+		echo "<td><b>FECHA DE FACTURA:</b></td><td id='dateinvoice' style='float:left; padding:3px 3px 3px 10px;'>".date("Y-m-d")."</td>";
 		echo "</tr>";
 		
 		echo "<tr>";

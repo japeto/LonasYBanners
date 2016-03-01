@@ -35,12 +35,13 @@
 		while($row = mysqli_fetch_assoc($result)) {				
 			if($row['CDESCRIPCION']==="CALI"){
 			echo"<option id ='ciudad_".$row['IDCIUDAD']."' value='".$row['CDESCRIPCION']."' selected='selected'> ".$row['CDESCRIPCION']."</option>";		
-			}		
+			}else{		
 			echo"<option id ='ciudad_".$row['IDCIUDAD']."' value='".$row['CDESCRIPCION']."'> ".$row['CDESCRIPCION']."</option>";		
+			}
 		}
 	echo "</select></td>";
 	echo "<td width='10%'><b>DEPTO.:</b></td>";
-	echo "<td><input style='width:80%;' autocomplete='off' id='inDepto' placeholder='DEPARTAMENTO'/></td>";
+	echo "<td><input style='width:80%;' autocomplete='off' id='inDepto' placeholder='DEPARTAMENTO' value='VALLE DEL CAUCA' 	/></td>";
 	echo "</tr>";
 	echo "<tr>";
 	echo "</td id = '' ></td>";	

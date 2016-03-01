@@ -8,12 +8,16 @@
 		$count=mysqli_num_rows($result);
 		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 		if($count==1){
-			ini_set("session.cookie_lifetime","100");
-			ini_set("session.gc_maxlifetime","100");
+			
 			session_start();
 			$_SESSION['user_name']=$username;
-			$_SESSION['full_name']=$row['NOMBREUSUARIO'];						
+			$_SESSION['full_name']=$row['NOMBREUSUARIO'];	
 			
+			$_SESSION['usertime'] = (90*60)+time();
+								
+			if($row['ACCESO_IDACCESO'] == 1){$_SESSION['root']=$username;}
+			else if($row['ACCESO_IDACCESO'] == 3){$_SESSION['admin']=$username;}			
+
 			$arr = array ('result'=>'true','user_name'=>$username,'full_name'=>$row['NOMBREUSUARIO']);
 			echo json_encode($arr);
 		}else {

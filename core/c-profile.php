@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include("../include/condb.php");
 	$result=mysqli_query($db,"SELECT * FROM CLIENTE");
 	$count=mysqli_num_rows($result);

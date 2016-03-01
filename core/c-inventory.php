@@ -46,7 +46,17 @@
 	$result=mysqli_query($db,"SELECT * FROM INVENTARIO;");
 	$count=mysqli_num_rows($result);	
 	echo "<table id='tableinventory' >";
-	echo "<caption>RESULTADOS DE LA BUSQUEDA<font style='float:right;' color='black'> ".$count." Resultados</font> </caption>";
+	echo "<caption>RESULTADOS DE LA BUSQUEDA <font style='float:right;' color='black'> ".$count." Resultados</font>";
+	
+		echo '<form action="core/c-export.php" method="post" target="_blank" id="FormularioExportacion">
+<img class="imgbutton" id="exportreport" src="shared/thumbs/btexcel.png" align="right" style="padding-right:5px;">
+<input type="hidden" id="datos_a_enviar" name="datos_a_enviar" />
+<input type="hidden" id="nameexport" name="nameexport" />
+</form>';
+		echo "<a class='imgbutton' id='prnt'  onclick='printreport(this)' >";
+		echo "<img src='shared/thumbs/btprint.png'align='right' style='padding-right:5px;'> </a>";
+					
+	echo "</caption>";	
 	if($count===0) {
 		echo "<thead>";
 		echo "<tr>";
@@ -76,7 +86,7 @@
 			echo "<th>ACCION</th>";			
 		echo "</tr>";
 		echo "</thead>";
-		echo "<tbody>";									
+		echo "<tbody id='content'>";									
 		while($row = mysqli_fetch_assoc($result)) {
 			echo "<tr id='customer_".$row['IDINVENTARIO']."'>";
 				echo "<td class='editable' id='NOMBREPRODUCTO_".$row['IDINVENTARIO']."'>".$row['NOMBREPRODUCTO']."</td>";

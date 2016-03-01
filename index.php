@@ -1,3 +1,1 @@
-<?php
-session_start();include("include/session.php");if(empty($_SESSION['full_name'])){include("view/w-login.php");}else{include("view/w-home.php");}
-?>
+<?php session_start();if(empty($_SESSION['full_name'])){include("view/w-login.php");}else{if(($_SESSION['usertime'])<time()){include("view/w-login.php");}else{$_SESSION['usertime']=(90*60)+time();include("view/w-home.php");}}?>
